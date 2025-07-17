@@ -1,0 +1,246 @@
+body {
+  margin: 0;
+  background: #111;
+  color: #eee;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.screen {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 90vw;
+  max-width: 800px;
+  min-height: 80vh;
+  max-height: 90vh;
+  background: #222;
+  border-radius: 12px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  overflow-y: auto;
+  margin: 20px 0;
+}
+
+#mainMenu {
+  display: flex;
+  justify-content: center;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: #222;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+button {
+  cursor: pointer;
+  background: #444;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  margin: 6px;
+  font-size: 1rem;
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+  background: #666;
+}
+
+button:disabled {
+  background: #333;
+  cursor: not-allowed;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+#timer {
+  font-size: 1.2rem;
+  font-weight: bold;
+  user-select: none;
+}
+
+#pauseBtn {
+  background: #555;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+#pauseBtn:hover {
+  background: #777;
+}
+
+.organs-container {
+  width: 100%;
+  margin: 15px 0;
+}
+
+.organs {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.organ {
+  background: #333;
+  border-radius: 10px;
+  padding: 15px;
+  min-width: 160px;
+  box-sizing: border-box;
+  user-select: none;
+  position: relative;
+}
+
+.organ.locked {
+  opacity: 0.4;
+  filter: grayscale(80%);
+}
+
+.organ.infected::after {
+  content: "☠️ Infected";
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 0.8rem;
+  color: #ff5555;
+  font-weight: bold;
+}
+
+.organ-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.health-bar {
+  width: 100%;
+  height: 16px;
+  background: #555;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.health-fill {
+  height: 100%;
+  background: #4caf50;
+  width: 100%;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.health-fill.danger {
+  background: #e74c3c;
+}
+
+.tap-area {
+  background: #311;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 15px 0;
+  user-select: none;
+  cursor: pointer;
+  width: 80%;
+  max-width: 400px;
+}
+
+#heartTap {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.unlock-buttons {
+  margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.locked-btn {
+  opacity: 0.4;
+  filter: grayscale(80%);
+}
+
+.perks {
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.perks h3 {
+  margin-bottom: 10px;
+}
+
+.perks button {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 8px auto;
+}
+
+@media (max-width: 600px) {
+  .screen {
+    width: 95vw;
+    padding: 15px;
+  }
+  
+  .organs {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .organ {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .tap-area {
+    width: 90%;
+  }
+  
+  .unlock-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .unlock-buttons button {
+    width: 100%;
+    max-width: 250px;
+  }
+}

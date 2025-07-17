@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pulse of Life - Tapping Defense</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Main Menu -->
+  <div id="mainMenu" class="screen">
+    <h1>💓 Pulse of Life</h1>
+    <button onclick="startGame()">▶ Play</button>
+  </div>
+
+  <!-- Game Screen -->
+  <div id="gameScreen" class="screen">
+    <div class="game-header">
+      <div id="timer">Time: 0:00</div>
+      <button id="pauseBtn" onclick="pauseGame()">⏸ Pause</button>
+    </div>
+
+    <div class="organs-container">
+      <div class="organs">
+        <div class="organ" id="heartOrgan">
+          <div class="organ-name">❤️ Heart</div>
+          <div class="health-bar"><div id="heartHealthBar" class="health-fill"></div></div>
+          <div>Health: <span id="heartHealth">100</span>%</div>
+        </div>
+        <div class="organ locked" id="lungsOrgan">
+          <div class="organ-name">🫁 Lungs (Locked)</div>
+          <div class="health-bar"><div id="lungsHealthBar" class="health-fill"></div></div>
+          <div>Health: <span id="lungsHealth">100</span>%</div>
+        </div>
+        <div class="organ locked" id="brainOrgan">
+          <div class="organ-name">🧠 Brain (Locked)</div>
+          <div class="health-bar"><div id="brainHealthBar" class="health-fill"></div></div>
+          <div>Health: <span id="brainHealth">100</span>%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tap-area" onclick="tapHeart()">
+      <div id="heartTap">❤️ Tap the Heart</div>
+      <div>Points: <span id="points">0</span></div>
+    </div>
+
+    <div class="unlock-buttons">
+      <button id="unlockLungsBtn" class="locked-btn" onclick="unlockOrgan('lungs')" disabled>Unlock Lungs (100 points)</button>
+      <button id="unlockBrainBtn" class="locked-btn" onclick="unlockOrgan('brain')" disabled>Unlock Brain (500 points)</button>
+    </div>
+
+    <div class="perks">
+      <h3>Perks (Cost in points)</h3>
+      <button onclick="buyPerk('shield')" id="perkShieldBtn">Shield (Reduces damage to 1hp) - 200 pts</button>
+      <button onclick="buyPerk('antivirus')" id="perkAntivirusBtn">Antivirus (Cures lowest health organ) - 150 pts</button>
+      <button onclick="buyPerk('heal')" id="perkHealBtn">Heal Organs (+20 health) - 100 pts</button>
+      <button onclick="buyPerk('rapidTap')" id="perkRapidTapBtn">Rapid Tap (x2 points 10s) - 300 pts</button>
+    </div>
+  </div>
+
+  <!-- Pause Popup -->
+  <div id="pausePopup" class="popup">
+    <div class="popup-content">
+      <h2>Game Paused</h2>
+      <button onclick="resumeGame()">▶ Resume</button>
+      <button onclick="restartGame()">🔄 Restart</button>
+      <button onclick="backToMenu()">🏠 Main Menu</button>
+    </div>
+  </div>
+
+  <!-- Fail Popup -->
+  <div id="failPopup" class="popup">
+    <div class="popup-content">
+      <h2>You Lost 😞</h2>
+      <p id="failReason"></p>
+      <button onclick="restartGame()">🔄 Restart</button>
+      <button onclick="backToMenu()">🏠 Main Menu</button>
+    </div>
+  </div>
+
+  <!-- Win Popup -->
+  <div id="winPopup" class="popup">
+    <div class="popup-content">
+      <h2>🎉 You Survived 5 Minutes! You Win!</h2>
+      <button onclick="restartGame()">Play Again</button>
+      <button onclick="backToMenu()">Main Menu</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
