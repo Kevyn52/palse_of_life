@@ -6,7 +6,7 @@
   <title>Pulse of Life - Tapping Defense</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<>
+<body>
   <!-- Main Menu -->
   <div id="mainMenu" class="screen">
     <h1>💓 Pulse of Life</h1>
@@ -28,12 +28,12 @@
           <div>Health: <span id="heartHealth">100</span>%</div>
         </div>
         <div class="organ locked" id="lungsOrgan">
-          <div class="organ-name">🫁 Lungs (Locked)</div>
+          <div class="organ-name">🫁 Lungs </div>
           <div class="health-bar"><div id="lungsHealthBar" class="health-fill"></div></div>
           <div>Health: <span id="lungsHealth">100</span>%</div>
         </div>
         <div class="organ locked" id="brainOrgan">
-          <div class="organ-name">🧠 Brain (Locked)</div>
+          <div class="organ-name">🧠 Brain </div>
           <div class="health-bar"><div id="brainHealthBar" class="health-fill"></div></div>
           <div>Health: <span id="brainHealth">100</span>%</div>
         </div>
@@ -46,8 +46,8 @@
     </div>
 
     <div class="unlock-buttons">
-      <button id="unlockLungsBtn" class="locked-btn" onclick="unlockOrgan('lungs')" disabled>Lungs (100 points)</button>
-      <button id="unlockBrainBtn" class="locked-btn" onclick="unlockOrgan('brain')" disabled>Brain (500 points)</button>
+      <button id="unlockLungsBtn" class="locked-btn" onclick="unlockOrgan('lungs')" disabled>Unlock Lungs (100 points)</button>
+      <button id="unlockBrainBtn" class="locked-btn" onclick="unlockOrgan('brain')" disabled>Unlock Brain (500 points)</button>
     </div>
 
     <div class="perks">
@@ -87,10 +87,6 @@
       <button onclick="backToMenu()">Main Menu</button>
     </div>
   </div>
-
-  <br/>
-  <br/>
-  <br/>
 
   <script src="script.js"></script>
 </body>
