@@ -218,6 +218,7 @@ button:disabled {
   .screen {
     width: 95vw;
     padding: 15px;
+    min-height: 150vh; /* 150% of the viewport height */
   }
   
   .organs {
